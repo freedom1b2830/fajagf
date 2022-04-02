@@ -1,0 +1,64 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>freedom1b2830</groupId>
+		<artifactId>fajagf</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+	</parent>
+	<artifactId>fajagf-hub</artifactId>
+
+	<properties>
+		<mainClass>freedom1b2830.fajagf.gui.FajagfGui</mainClass>
+	</properties>
+
+
+	<dependencies>
+		<dependency>
+			<groupId>freedom1b2830</groupId>
+			<artifactId>fajagf-libs</artifactId>
+			<version>0.0.1-SNAPSHOT</version>
+		</dependency>
+		<!-- LOGS -->
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-api</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.slf4j</groupId>
+			<artifactId>slf4j-simple</artifactId>
+		</dependency>
+		<!-- LOGS -->
+	</dependencies>
+	<build>
+		<plugins>
+			<!--JAR -->
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>make-${project.artifactId}</id>
+						<phase>package</phase>
+						<configuration>
+							<finalName>${project.artifactId}-${project.version}</finalName>
+							<archive>
+								<manifest>
+									<mainClass>${mainClass}</mainClass>
+								</manifest>
+							</archive>
+							<descriptorRefs>
+								<descriptorRef>jar-with-dependencies</descriptorRef>
+							</descriptorRefs>
+						</configuration>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+			<!--JAR -->
+
+		</plugins>
+	</build>
+
+
+</project>
